@@ -1,0 +1,6 @@
+
+
+
+1	winscp连接问题
+	连不上的原因有可能是 (1)联网方式非桥接; (2)ssh服务没有启动
+		启动ssh 服务 sudo service ssh
