@@ -1,18 +1,46 @@
 
+目录：
+	5-1 linux高阶命令1-find
+	5-2 linux高阶命令2-grep&which&whereis
+	5-3 linux高阶命令3-uname&关机重启命令
+	5-4	linux高阶命令4-tree&mount&df
+	5-5	linux高阶命令5-用户管理&权限管理
+	5-6 其他有可能用到的高阶命令
+
+正文：	
+5.1	find
+		什么时候用find？
+			当你知道文件名，但是你忘记它被放到哪个目录下，要找到该文件、
+			例如： find /etc -name "interfaces"
+		
+
+5.2	grep
+		功能：在一个文本文件中查找一个词
+		grep -nr "要查找的符号" 要查找的目录或文件
+		注意：-n 表示查找结果中显示行号，-r表示要递归查找
+	
+	which 和 whereis
+		功能：查找一个应用程序(二进制文件)在哪里
+		区别：
+			which只显示二进制文件的路径
+			whereis显示二进制文件的路径，和其源码 或man手册位置
+			就是显示的内容比较详细
+		举例：	which ls
+				which mkdir
+				whereis ls
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+5.3	uname
+		功能：	查看系统信息
+		举例：  uname -a	查所有信息
+				uname -r	查内核版本
+				可 man 1 uname 查看uname参数
+	
+	开机和关机
+		shutdown -h now		立即关机
+		init 0				关机
+		shotdown -r now		立即重启
+		reboot				重启
 
 
 5.4	linux高阶命令4	tree & mount & df
@@ -73,9 +101,40 @@
 									chmod g-x 文件名		--组用户去掉x权限
 									chmod o+w 文件名		--其它用户增加写权限
 									chmod o-w 文件名		--其它用户去掉写权限
-				
-									
 
+5.6	其它有可能用到的高阶命令
+		5.6.1	文件打包压缩与解压缩
+				tar -czvf dir.tar.gz dir/			--将dir目录打包成dir.tar.gz			
+				tar -cjvf dir.tar.bz2 dir/			--将dir目录打包成dir.tar.bz2
+				tar -zxvf dir.tar.gz				--解压缩dir.tar.gz
+				tar -jxvf dir.tar.bz2				--解压缩dir.tar.bz2
+	
+				gz 与 bz2 的区别是压缩算法不一样
+		
+		5.6.2	sed 和 awk							[相对的比较麻烦，可以之后去了解，不常用]
+				正则表达式。匹配加替换。
+				
+				
+		5.6.3	格式化文件系统
+				mkfs	/dev/hd1
+				mkfs -t vfat 32 -F /dev/hd1		--创建一个FAT32文件系统
+		
+		5.6.4	网络配置命令
+				ifconfig eth0 192.168.1.12				--设置IP地址
+				ifconfig eth0 up						--启动网卡
+				ifconfig eth0 down						--禁用网卡
+				ifup eth0								--启动网卡
+				ifdown eth0								--禁用网卡
+				ifconfig eth0 192.168.1.1 netmask 255.255.255.0		--同时配置IP和子网掩码
+				
+
+预留：
+		1	搭建tftp服务器
+		2	搭建nfs服务器
+				
+				
+				
+				
 				
 									
 									
